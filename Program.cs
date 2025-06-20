@@ -1,3 +1,5 @@
+using Realestate_ERP_Dashboard.Controllers;
+
 namespace Realestate_ERP_Dashboard
 {
     public class Program
@@ -30,3 +32,4 @@ namespace Realestate_ERP_Dashboard
         }
     }
 }
+
