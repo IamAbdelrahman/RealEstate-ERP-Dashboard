@@ -8,26 +8,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\**" />
     <Compile Remove="Views\Contracts\**" />
     <Compile Remove="Views\Payments\**" />
     <Compile Remove="Views\Reports\**" />
     <Compile Remove="wwwroot\images\**" />
+    <Content Remove="Data\Migrations\**" />
     <Content Remove="Views\Contracts\**" />
     <Content Remove="Views\Payments\**" />
     <Content Remove="Views\Reports\**" />
     <Content Remove="wwwroot\images\**" />
+    <EmbeddedResource Remove="Data\Migrations\**" />
     <EmbeddedResource Remove="Views\Contracts\**" />
     <EmbeddedResource Remove="Views\Payments\**" />
     <EmbeddedResource Remove="Views\Reports\**" />
     <EmbeddedResource Remove="wwwroot\images\**" />
+    <None Remove="Data\Migrations\**" />
     <None Remove="Views\Contracts\**" />
     <None Remove="Views\Payments\**" />
     <None Remove="Views\Reports\**" />
     <None Remove="wwwroot\images\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
