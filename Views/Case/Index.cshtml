@@ -1,0 +1,40 @@
+﻿@model List<Case>  
+@{  
+    ViewData["Title"] = "Index";  
+    ViewBag.Title = "القضايا و الجلسات";  
+}  
+
+<h1>Index</h1>  
+<div class="container mt-4 text-right" dir="rtl"></div>
+<h4 class="mb-3">القضايا و الجلسات</h4>
+<div class="mb-3">
+    <button class="btn btn-success">اضافة</button>
+    <button class="btn btn-primary">PDF</button>
+    <button class="btn btn-info">اكسل</button>
+    <button class="btn btn-warning">طباعة</button>
+</div>
+<input type="text" class="form form-control mb-3 w-25" placeholder="بحث"/>
+<table class="table table-bordered text-center">
+    <thead class="thead-dark">
+        <tr>
+            <th>الكود</th>
+            <th>رقم القضية</th>
+            <th>اجراءات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CaseNumber</td>
+                <td>
+                    <a href="" class="btn btn-sm btn-primary">عرض</a>
+                    @* <button class="btn btn-primary">عرض</button> *@
+                    <button class="btn btn-secondary">تعديل</button>
+                    <button class="btn btn-danger">حذف</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
