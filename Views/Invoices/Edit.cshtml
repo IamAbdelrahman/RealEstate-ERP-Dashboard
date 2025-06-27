@@ -1,0 +1,68 @@
+﻿@using Realestate_ERP_Dashboard.ViewModels
+
+@model InvoiceViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>تعديل الفاتورة</h2>
+
+<form asp-action="Edit" asp-route-id="@Model.Id" method="post" class="row g-3 mb-2">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="row mb-lg-4">
+        <div class="form-group mb-2">
+            <label class="text-success" asp-for="BuildingId">اختر مبنى</label>
+            <select asp-for="BuildingId" class="form-control">
+                <option value="">-- اختر --</option>
+                @if (Model.BuildingId != null)
+                {
+                    foreach (var build in Model.Buildings)
+                    {
+                        <option value="@build.Id">
+                            @build.Name
+                        </option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="BuildingId" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4 mb-2">
+            <label asp-for="Month" class="form-label">الشهر</label>
+            <input asp-for="Month" class="form-control" type="number" min="1" max="12" />
+        </div>
+
+        <div class="col-md-4 mb-2">
+            <label asp-for="Year" class="form-label">السنة</label>
+            <input asp-for="Year" class="form-control" type="number" />
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="UnitName" class="form-label">اسم الوحدة</label>
+        <input asp-for="UnitName" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="ElectricityBill" class="form-label">رقم فاتورة الكهرباء</label>
+        <input asp-for="ElectricityBill" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="WaterBill" class="form-label">رقم فاتورة المياه</label>
+        <input asp-for="WaterBill" class="form-control" />
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" value="submit">تحديث الفاتورة</button>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

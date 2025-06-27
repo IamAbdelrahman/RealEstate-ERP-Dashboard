@@ -1,4 +1,5 @@
 ﻿@using Realestate_ERP_Dashboard.ViewModels
+
 @model InvoiceViewModel
 
 @{
@@ -7,23 +8,31 @@
 
 <h2>إضافة فاتورة</h2>
 
-<form asp-action="Create" method="post" class="row g-3">
+<form asp-action="Create" method="post" class="row g-3 mb-2">
 
-    <div class="col-md-4">
-        <label asp-for="SelectedBuilding" class="form-label">المجمع</label>
-        <select asp-for="SelectedBuilding" asp-items="new SelectList(Model.BuildingList)" class="form-select">
-            <option value="">اختر مجمع</option>
-        </select>
-    </div>
+    <div class="row mb-lg-4 ">
+        <div class="col-md-4 mb-2">
+            <div class="form-group mb-2">
+                <label asp-for="BuildingId">اختر مبنى</label>
+                <select name="BuildingId" id="BuildingId" class="form-control">
+                    <option value="">-- اختر  --</option>
+                    @foreach (var build in Model.Buildings)
+                    {
+                        <option value="@build.Id">@build.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="BuildingId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4 mb-2">
+            <label asp-for="Month" class="form-label">الشهر</label>
+            <input asp-for="Month" class="form-control" type="number" min="1" max="12" />
+        </div>
 
-    <div class="col-md-4">
-        <label asp-for="Month" class="form-label">الشهر</label>
-        <input asp-for="Month" class="form-control" type="number" min="1" max="12" />
-    </div>
-
-    <div class="col-md-4">
-        <label asp-for="Year" class="form-label">السنة</label>
-        <input asp-for="Year" class="form-control" type="number" />
+        <div class="col-md-4 mb-2">
+            <label asp-for="Year" class="form-label">السنة</label>
+            <input asp-for="Year" class="form-control" type="number" />
+        </div>
     </div>
 
     <div class="col-md-6">
@@ -41,7 +50,7 @@
         <input asp-for="WaterBill" class="form-control" />
     </div>
 
-    <div class="col-md-6">
+ @*    <div class="col-md-6">
         <label class="form-label">مجموع الكهرباء</label>
         <input class="form-control" disabled value="@Model.TotalElectricityBill" />
     </div>
@@ -49,11 +58,18 @@
     <div class="col-md-6">
         <label class="form-label">مجموع المياه</label>
         <input class="form-control" disabled value="@Model.TotalWaterBill" />
-    </div>
+    </div> *@
 
     <div class="col-12">
-        <button type="submit" class="btn btn-primary">حفظ الفاتورة</button>
+        <button type="submit" class="btn btn-primary" value="Submit">
+            حفظ الفاتورة
+        </button>
     </div>
 </form>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
 
 
